@@ -40,6 +40,7 @@ export class PhotoFormComponent implements OnInit {
     const allowComments = this.photoForm.get('allowComments').value;
     this.photoService
       .upload(description, allowComments, this.file)
+      // finalize: Garante que um trecho de código seja executado tanto após o sucesso ou fracasso da operação.
       .pipe(finalize(() => {
         this.router.navigate(['/user', this.userService.getUserName()]);
       }))
