@@ -19,4 +19,8 @@ export class LoadingService {
     this.loadingSubject.next(LoadingType.LOADING);
   }
 
+  public stop() {
+    this.loadingSubject.next(LoadingType.STOPPED);
+  }
+
 }
