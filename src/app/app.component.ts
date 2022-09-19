@@ -20,7 +20,14 @@ export class AppComponent implements OnInit {
 
 
   public ngOnInit(): void {
+    /**
+     * Uma instância de Router possui a propriedade events, 
+     * um Observable que nos permite saber a fase atual da rota acessada pela aplicação.
+     */
     this.router.events
+    /**
+     * Um evento do tipo NavigationEnd é aquele disparado quando a rota termina com sucesso.
+     */
       .pipe(filter(event => event instanceof NavigationEnd))
       .pipe(map(() => this.activatedRoute))
       .pipe(map(route => {
