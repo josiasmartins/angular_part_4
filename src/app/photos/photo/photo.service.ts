@@ -39,6 +39,12 @@ export class PhotoService {
           API + '/photos/upload', 
           formData,
           { 
+            /**
+             * observe e reportProgress
+             * 
+             * informações sobre o progresso de upload ou download de arquivo 
+             * precisamos passar um objeto especial para os métodos de HttpClient
+             */
             observe: 'events',
             reportProgress: true
           }
