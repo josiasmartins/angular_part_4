@@ -18,7 +18,7 @@ export class LoadingComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loading$ = this.loadingService
       .getLoading()
       // valueOf: retorna o valor da string da enum
