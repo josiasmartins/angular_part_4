@@ -4,6 +4,8 @@ import * as StackTrace from 'stacktrace-js';
 import { UserService } from '../../core/user/user.service';
 import { ServerLog } from './server-log';
 import { ServerLogService } from './server-log.service';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
@@ -18,12 +20,15 @@ export class GlobalErrorHandler implements ErrorHandler {
     const location = this.injector.get(LocationStrategy);
     const userService = this.injector.get(UserService);
     const serverLog = this.injector.get(ServerLogService);
+    const router = this.injector.get(Router);
 
     const url = location instanceof PathLocationStrategy
       ? location.path() : '';
 
 
     const message = error.message ? error.message : error.toString();
+
+    if (environment.production) router.navigate(['/error']);
     /**
      * O método StackTrace.fromError transforma a stacktrace
      * de um Error em um array no qual cada item do array é uma stackframe.
@@ -51,6 +56,7 @@ export class GlobalErrorHandler implements ErrorHandler {
             console.log('Fail to send log to server')
           }
         );
-      });
+      })
+    // throw error;
   }
 }
