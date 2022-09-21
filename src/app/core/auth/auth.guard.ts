@@ -18,8 +18,9 @@ export class AuthGuard implements CanActivate {
                 this.router.navigate(
                   [''],
                   {
+                    // Podemos passar informações extras através da URL da rota como query params
                     queryParams: {
-                      formUrl: state.url
+                      fromUrl: state.url
                     }
                   }
                 );
