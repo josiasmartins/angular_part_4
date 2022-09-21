@@ -12,7 +12,7 @@ import { UserService } from "../../core/user/user.service";
 @Component({
     templateUrl: './photo-details.component.html'
 })
-export class PhotoDetailsComponent implements OnInit { 
+export class PhotoDetailsComponent implements OnInit {
 
     photo$: Observable<Photo>;
     photoId: number;
@@ -40,7 +40,7 @@ export class PhotoDetailsComponent implements OnInit {
             .subscribe(
                 () => {
                     this.alertService.success("Photo removed", true);
-                    this.router.navigate(['/user', this.userService.getUserName()]);
+                    this.router.navigate(['/user', this.userService.getUserName()], { replaceUrl: true });
                 },
                 err => {
                     console.log(err);
