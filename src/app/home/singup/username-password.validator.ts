@@ -8,7 +8,7 @@ export const userNamePassword: ValidatorFn = (formGroup: FormGroup) => {
   console.log(`userName: ${userName}, passsword: ${password}`);
 
   if (userName.trim() + password.trim()) {
-    userName != password
+    return userName != password
       ? null
       : { userNamePassword: true }
   } else {
