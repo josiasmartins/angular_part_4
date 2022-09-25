@@ -1,5 +1,8 @@
 # Alurapic
 
+## demo
+![demo](./src/assets/alurapic-4.gif)
+
 ## [api](https://github.com/josiasmartins/api-alurapic)
 
 ## [api serverlog](https://github.com/josiasmartins/api-serverlog-node)
